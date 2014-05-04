@@ -1,17 +1,19 @@
 package br.ufg.inf.es.gcm;
 
+import java.io.IOException;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Config;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -79,57 +81,90 @@ public class RegistroActivity extends Activity {
 
 	public String registrarGCM() {
 		gcm = GoogleCloudMessaging.getInstance(this);
-		regId = getRegistrationId(context);
+		regId = getIdRegistro(context);
 
 		if (TextUtils.isEmpty(regId)) {
-			registerInBackground();
-			
+			registroEmSegundoPlano();
+
 			Log.d("RegistroActivity",
 					"registrarGCM - Registrado com sucesso no Servidor GCM - regId: "
 							+ regId);
 		} else {
 			Toast.makeText(getApplicationContext(),
-					"RegId já disponível. RegId: " + regId,
-					Toast.LENGTH_LONG).show();
+					"RegId já disponível. RegId: " + regId, Toast.LENGTH_LONG)
+					.show();
 		}
 		return regId;
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.registro, menu);
-		return true;
+	private String getIdRegistro(Context context) {
+		final SharedPreferences prefs = getSharedPreferences(
+				MainActivity.class.getSimpleName(), Context.MODE_PRIVATE);
+		String registrationId = prefs.getString(REG_ID, "");
+		if (registrationId.isEmpty()) {
+			Log.i(TAG, "Registro não encontrado.");
+			return "";
+		}
+		int registeredVersion = prefs.getInt(APP_VERSION, Integer.MIN_VALUE);
+		int currentVersion = getVersaoApp(context);
+		if (registeredVersion != currentVersion) {
+			Log.i(TAG, "Versão do App modificada.");
+			return "";
+		}
+		return registrationId;
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_registro,
-					container, false);
-			return rootView;
+	private static int getVersaoApp(Context context) {
+		try {
+			PackageInfo packageInfo = context.getPackageManager()
+					.getPackageInfo(context.getPackageName(), 0);
+			return packageInfo.versionCode;
+		} catch (NameNotFoundException e) {
+			Log.d("RegistroActivity", "Erro inesperado!" + e);
+			throw new RuntimeException(e);
 		}
 	}
 
+	private void registroEmSegundoPlano() {
+		new AsyncTask<Void, Void, String>() {
+			@Override
+			protected String doInBackground(Void... params) {
+				String msg = "";
+				try {
+					if (gcm == null) {
+						gcm = GoogleCloudMessaging.getInstance(context);
+					}
+					regId = gcm.register(Config.GOOGLE_PROJECT_ID);
+					Log.d("RegisterActivity", "registerInBackground - regId: "
+							+ regId);
+					msg = "Device registered, registration ID=" + regId;
+
+					storeRegistrationId(context, regId);
+				} catch (IOException ex) {
+					msg = "Error :" + ex.getMessage();
+					Log.d("RegisterActivity", "Error: " + msg);
+				}
+				Log.d("RegisterActivity", "AsyncTask completed: " + msg);
+				return msg;
+			}
+
+			@Override
+			protected void onPostExecute(String msg) {
+				Toast.makeText(getApplicationContext(),
+						"Registered with GCM Server." + msg, Toast.LENGTH_LONG)
+						.show();
+			}
+		}.execute(null, null, null);
+	}
+
+	private void storeRegistrationId(Context context, String regId) {
+		final SharedPreferences prefs = getSharedPreferences(
+				MainActivity.class.getSimpleName(), Context.MODE_PRIVATE);
+		int appVersion = getVersaoApp(context);
+		Log.i(TAG, "Saving regId on app version " + appVersion);
+		SharedPreferences.Editor editor = prefs.edit();
+		editor.putString(REG_ID, regId);
+		editor.putInt(APP_VERSION, appVersion);
+		editor.commit();
+	}
 }
