@@ -1,0 +1,5 @@
+package br.ufg.inf.es.gcm;
+
+public class GCMServicoNoticacaoIntent {
+
+}

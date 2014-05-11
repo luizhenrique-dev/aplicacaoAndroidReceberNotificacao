@@ -3,8 +3,12 @@
 <fullyQualifiedTypeName name="br.ufg.inf.es.gcm.Utilidades"/>
 <fullyQualifiedTypeName name="br.ufg.inf.es.gcm.R.id"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
-<fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="com.google.android.gms.gcm.GoogleCloudMessaging"/>
 <fullyQualifiedTypeName name="android.text.TextUtils"/>
+<fullyQualifiedTypeName name="br.ufg.inf.es.gcm.GCMServicoNoticacaoIntent"/>
+<fullyQualifiedTypeName name="android.app.IntentService"/>
+<fullyQualifiedTypeName name="android.util.Config"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="br.ufg.inf.es.gcm.GCMReceptorBroadcast"/>
 </qualifiedTypeNameHistroy>

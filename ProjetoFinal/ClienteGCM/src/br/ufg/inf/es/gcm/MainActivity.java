@@ -1,5 +1,5 @@
 package br.ufg.inf.es.gcm;
-
+//Final
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
