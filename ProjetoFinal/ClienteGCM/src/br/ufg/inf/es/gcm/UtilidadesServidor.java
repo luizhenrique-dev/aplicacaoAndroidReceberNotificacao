@@ -42,40 +42,40 @@ public final class UtilidadesServidor {
         // Once GCM returns a registration id, we need to register it in the
         // demo server. As the server might be down, we will retry it a couple
         // times.
-        for (int i = 1; i <= MAX_ATTEMPTS; i++) {
-            Log.d(TAG, "Attempt #" + i + " to register");
-            try {
-                displayMessage(context, context.getString(
-                        R.string.server_registering, i, MAX_ATTEMPTS));
-                post(serverUrl, params);
-                GCMRegistrar.setRegisteredOnServer(context, true);
-                String message = context.getString(R.string.server_registered);
-                Utilidades.displayMessage(context, message);
-                return;
-            } catch (IOException e) {
-                // Here we are simplifying and retrying on any error; in a real
-                // application, it should retry only on unrecoverable errors
-                // (like HTTP error code 503).
-                Log.e(TAG, "Failed to register on attempt " + i + ":" + e);
-                if (i == MAX_ATTEMPTS) {
-                    break;
-                }
-                try {
-                    Log.d(TAG, "Sleeping for " + backoff + " ms before retry");
-                    Thread.sleep(backoff);
-                } catch (InterruptedException e1) {
-                    // Activity finished before we complete - exit.
-                    Log.d(TAG, "Thread interrupted: abort remaining retries!");
-                    Thread.currentThread().interrupt();
-                    return;
-                }
-                // increase backoff exponentially
-                backoff *= 2;
-            }
-        }
-        String message = context.getString(R.string.server_register_error,
-                MAX_ATTEMPTS);
-        Utilidades.displayMessage(context, message);
+//        for (int i = 1; i <= MAX_ATTEMPTS; i++) {
+//            Log.d(TAG, "Attempt #" + i + " to register");
+//            try {
+//               // displayMessage(context, context.getString(
+//        //                R.string.server_registering, i, MAX_ATTEMPTS));
+//          //      post(serverUrl, params);
+//            //    GCMRegistrar.setRegisteredOnServer(context, true);
+//              //  String message = context.getString(R.string.server_registered);
+//                //Utilidades.displayMessage(context, message);
+//                return;
+//            } catch (IOException e) {
+//                // Here we are simplifying and retrying on any error; in a real
+//                // application, it should retry only on unrecoverable errors
+//                // (like HTTP error code 503).
+//                Log.e(TAG, "Failed to register on attempt " + i + ":" + e);
+//                if (i == MAX_ATTEMPTS) {
+//                    break;
+//                }
+//                try {
+//                    Log.d(TAG, "Sleeping for " + backoff + " ms before retry");
+//                    Thread.sleep(backoff);
+//                } catch (InterruptedException e1) {
+//                    // Activity finished before we complete - exit.
+//                    Log.d(TAG, "Thread interrupted: abort remaining retries!");
+//                    Thread.currentThread().interrupt();
+//                    return;
+//                }
+//                // increase backoff exponentially
+//                backoff *= 2;
+//            }
+//        }
+  //      String message = context.getString(R.string.server_register_error,
+    //            MAX_ATTEMPTS);
+      //  Utilidades.displayMessage(context, message);
     }
 
     /**
@@ -88,7 +88,7 @@ public final class UtilidadesServidor {
         params.put("regId", regId);
         try {
             post(serverUrl, params);
-            GCMRegistrar.setRegisteredOnServer(context, false);
+//            GCMRegistrar.setRegisteredOnServer(context, false);
             String message = context.getString(R.string.server_unregistered);
             Utilidades.displayMessage(context, message);
         } catch (IOException e) {

@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	ShareExternalServer appUtil;
+	CompartilharServidorExterno appUtil;
 	String regId;
 	AsyncTask<Void, Void, String> shareRegidTask;
 
@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		appUtil = new ShareExternalServer();
+		appUtil = new CompartilharServidorExterno();
 
 		regId = getIntent().getStringExtra("regId");
 		Log.d("MainActivity", "regId: " + regId);
@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 		shareRegidTask = new AsyncTask<Void, Void, String>() {
 			@Override
 			protected String doInBackground(Void... params) {
-				String result = appUtil.shareRegIdWithAppServer(context, regId);
+				String result = appUtil.compartilhaRegIdComServidorApp(context, regId);
 				return result;
 			}
 

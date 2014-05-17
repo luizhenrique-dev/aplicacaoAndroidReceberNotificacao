@@ -28,7 +28,7 @@ public class RegistroActivity extends Activity {
 
 	private static final String REG_ID = "regId";
 	private static final String APP_VERSION = "appVersion";
-	static final String TAG = "Activity Registro";
+	static final String TAG = "RegistroActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class RegistroActivity extends Activity {
 			}
 		});
 
-		btnCompartilharApp = findViewById(R.id.btnCompartilharApp);
+		btnCompartilharApp = (Button) findViewById(R.id.btnCompartilharApp);
 		btnCompartilharApp.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -134,23 +134,23 @@ public class RegistroActivity extends Activity {
 						gcm = GoogleCloudMessaging.getInstance(context);
 					}
 					regId = gcm.register(Config.GOOGLE_PROJECT_ID);
-					Log.d("RegisterActivity", "registerInBackground - regId: "
+					Log.d("RegistroActivity", "registroEmSegundoPlano - regId: "
 							+ regId);
-					msg = "Device registered, registration ID=" + regId;
+					msg = "Dispositivo registrado, ID de registro =" + regId;
 
 					storeRegistrationId(context, regId);
 				} catch (IOException ex) {
 					msg = "Error :" + ex.getMessage();
-					Log.d("RegisterActivity", "Error: " + msg);
+					Log.d("RegistroActivity", "Error: " + msg);
 				}
-				Log.d("RegisterActivity", "AsyncTask completed: " + msg);
+				Log.d("RegistroActivity", "AsyncTask completed: " + msg);
 				return msg;
 			}
 
 			@Override
 			protected void onPostExecute(String msg) {
 				Toast.makeText(getApplicationContext(),
-						"Registered with GCM Server." + msg, Toast.LENGTH_LONG)
+						"Registrado com Servidor GCM." + msg, Toast.LENGTH_LONG)
 						.show();
 			}
 		}.execute(null, null, null);
@@ -160,7 +160,7 @@ public class RegistroActivity extends Activity {
 		final SharedPreferences prefs = getSharedPreferences(
 				MainActivity.class.getSimpleName(), Context.MODE_PRIVATE);
 		int appVersion = getVersaoApp(context);
-		Log.i(TAG, "Saving regId on app version " + appVersion);
+		Log.i(TAG, "Salvando regId no aplicativo versão " + appVersion);
 		SharedPreferences.Editor editor = prefs.edit();
 		editor.putString(REG_ID, regId);
 		editor.putInt(APP_VERSION, appVersion);

@@ -1050,15 +1050,16 @@ containing a value of this type.
  Minimum width of the search view text entry area. 
          */
         public static final int abc_search_view_text_min_width=0x7f0a000c;
-        /**  Default screen margins, per the Android Design guidelines. 
-
+        /** 
          Example customization of dimensions originally defined in res/values/dimens.xml
          (such as screen margins) for screens with more than 820dp of available width. This
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f0a0011;
-        public static final int activity_vertical_margin=0x7f0a0012;
+        public static final int activity_horizontal_margin=0x7f0a0014;
+        public static final int padding_large=0x7f0a0013;
+        public static final int padding_medium=0x7f0a0012;
+        public static final int padding_small=0x7f0a0011;
     }
     public static final class drawable {
         public static final int abc_ab_bottom_solid_dark_holo=0x7f020000;
@@ -1172,11 +1173,16 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f02006c;
         public static final int common_signin_btn_text_pressed_dark=0x7f02006d;
         public static final int common_signin_btn_text_pressed_light=0x7f02006e;
-        public static final int ic_launcher=0x7f02006f;
-        public static final int ic_plusone_medium_off_client=0x7f020070;
-        public static final int ic_plusone_small_off_client=0x7f020071;
-        public static final int ic_plusone_standard_off_client=0x7f020072;
-        public static final int ic_plusone_tall_off_client=0x7f020073;
+        public static final int fail=0x7f02006f;
+        public static final int gcm_cloud=0x7f020070;
+        public static final int gcm_logo=0x7f020071;
+        public static final int ic_action_search=0x7f020072;
+        public static final int ic_launcher=0x7f020073;
+        public static final int ic_plusone_medium_off_client=0x7f020074;
+        public static final int ic_plusone_small_off_client=0x7f020075;
+        public static final int ic_plusone_standard_off_client=0x7f020076;
+        public static final int ic_plusone_tall_off_client=0x7f020077;
+        public static final int success=0x7f020078;
     }
     public static final class id {
         public static final int action_bar=0x7f06001f;
@@ -1190,13 +1196,13 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060019;
         public static final int action_menu_presenter=0x7f06001a;
         public static final int action_mode_close_button=0x7f060027;
-        public static final int action_settings=0x7f060040;
         public static final int activity_chooser_view_content=0x7f060028;
         public static final int always=0x7f06000f;
         public static final int beginning=0x7f060014;
+        public static final int btnCompartilharApp=0x7f060041;
+        public static final int btnRegistroGCM=0x7f060040;
         public static final int checkbox=0x7f060030;
         public static final int collapseActionView=0x7f060011;
-        public static final int container=0x7f06003f;
         public static final int default_activity_button=0x7f06002b;
         public static final int dialog=0x7f060012;
         public static final int disableHome=0x7f06000c;
@@ -1211,6 +1217,7 @@ containing a value of this type.
         public static final int icon=0x7f06002d;
         public static final int ifRoom=0x7f06000e;
         public static final int image=0x7f06002a;
+        public static final int lblMessage=0x7f06003f;
         public static final int listMode=0x7f060005;
         public static final int list_item=0x7f06002c;
         public static final int middle=0x7f060015;
@@ -1297,13 +1304,7 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030016;
         public static final int activity_main=0x7f030017;
         public static final int activity_registro=0x7f030018;
-        public static final int fragment_main=0x7f030019;
-        public static final int fragment_registro=0x7f03001a;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
-    }
-    public static final class menu {
-        public static final int main=0x7f0c0000;
-        public static final int registro=0x7f0c0001;
+        public static final int support_simple_spinner_dropdown_item=0x7f030019;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1346,7 +1347,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f070026;
-        public static final int action_settings=0x7f07002a;
+        public static final int already_registered=0x7f07002d;
         public static final int app_name=0x7f070028;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
@@ -1442,23 +1443,29 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f070013;
+        public static final int error_config=0x7f07002c;
+        public static final int gcm_deleted=0x7f070033;
+        public static final int gcm_error=0x7f070031;
+        public static final int gcm_message=0x7f070030;
+        public static final int gcm_recoverable_error=0x7f070032;
+        public static final int gcm_registered=0x7f07002e;
+        public static final int gcm_unregistered=0x7f07002f;
         public static final int hello_world=0x7f070029;
         /**  Location client code resources (prefix with location_client) 
          */
         public static final int location_client_powered_by_google=0x7f07001a;
-        public static final int title_activity_registro=0x7f07002b;
+        public static final int menu_settings=0x7f07002a;
+        public static final int options_clear=0x7f070039;
+        public static final int options_exit=0x7f07003a;
+        public static final int options_register=0x7f070037;
+        public static final int options_unregister=0x7f070038;
+        public static final int server_registered=0x7f070034;
+        public static final int server_unregister_error=0x7f070036;
+        public static final int server_unregistered=0x7f070035;
+        public static final int title_activity_main=0x7f07002b;
     }
     public static final class style {
         /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -1470,11 +1477,8 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0b0083;
-        /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
-         */
-        public static final int AppTheme=0x7f0b0084;
+        public static final int AppBaseTheme=0x7f0b0084;
+        public static final int AppTheme=0x7f0b0083;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0b0063;
