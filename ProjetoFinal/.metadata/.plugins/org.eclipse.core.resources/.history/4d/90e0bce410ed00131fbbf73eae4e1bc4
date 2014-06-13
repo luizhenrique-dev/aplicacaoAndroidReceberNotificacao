@@ -1,0 +1,42 @@
+package br.ufg.inf.es.gcm;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+public class MostraMensagemActivity extends Activity {
+
+	public static final String TAG = "MostraMensagemIntent";
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_mostra_mensagem);
+		// Definimos uma TextView para mostrar a mensagem na tela
+		TextView texto = (TextView) findViewById(R.id.message);
+		// Define como texto da TextView a mensagem recebida do GCM
+		Bundle extras = getIntent().getExtras();
+
+		String mensagemRecebida = extras.getString("mensagem_recebida");
+		Log.i(TAG, "Extras: " + extras.toString());
+		texto.setText(mensagemRecebida);
+		// Ajusta tamanho e cor da fonte
+		texto.setTextSize(20.0F);
+		texto.setTextColor(Color.BLACK);
+		/*
+		 * Para tornar as coisas mais simples, mostraremos apenas uma TextView
+		 * na tela com o conteúdo da mensagem recebida da Nuvem através do GCM.
+		 */
+
+	}
+	
+	@Override
+	 protected void onPause() {
+	 super.onPause();
+	 getIntent().getExtras().remove("mensagem_recebida");;
+	 Log.i("TAG", "Pausado");
+	 }
+
+}

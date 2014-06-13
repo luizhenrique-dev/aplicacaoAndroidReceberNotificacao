@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CNApp</string>
+    <string name="description">CNApp - Casual Notifier App</string>
+    <string name="menu_settings">Configurações</string>
+    <string name="title_activity_main">Enviar Notificações Android</string>
+    <string name="error_config">Por favor informe %1$s constante e recompile o app.</string>
+    <string name="already_registered">Already registered.</string>
+    <string name="gcm_registered">GCM: Registrado com sucesso.</string>
+    <string name="gcm_unregistered">GCM: Não foi registrado com sucesso.</string>
+    <string name="gcm_message">GCM: Recebeu uma mensagem!</string>
+    <string name="gcm_error">GCM: Erro (%1$s).</string>
+    <string name="gcm_recoverable_error">GCM: Erro recuperável (%1$s).</string>
+    <string name="gcm_deleted">GCM: deletou %1$d mensagens pendentes!</string>
+    <string name="server_registered">Dispositivo Android adicionado.</string>
+    <string name="server_unregistered">Dispositivo Android removido.</string>
+    <string name="server_unregister_error">Não foi possível esquecer o dispositivo Android no Servidor de Aplicação (%1$s).</string>
+    <string name="options_register">Registrar</string>
+    <string name="options_unregister">Esquecer</string>
+    <string name="options_clear">Limpar</string>
+    <string name="options_exit">Sair</string>
+    <string name="title_activity_mostra_mensagem">MostraMensagemActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_mostra_mensagem">Mensagem Recebida</string>
+
+</resources>

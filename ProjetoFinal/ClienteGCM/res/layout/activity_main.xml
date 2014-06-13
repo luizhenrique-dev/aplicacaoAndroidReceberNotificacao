@@ -9,7 +9,7 @@
         android:id="@+id/lblMessage"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Activity Principal da Aplicação"
+        android:text="Nesta tela irá conter a lista de notificações recebidas do servidor"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000" />
 

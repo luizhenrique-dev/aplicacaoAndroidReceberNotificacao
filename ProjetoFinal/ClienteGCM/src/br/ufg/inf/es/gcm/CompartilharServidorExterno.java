@@ -13,6 +13,7 @@ import java.util.Map.Entry;
 import android.content.Context;
 import android.util.Log;
  
+/* Classe responsável por acessar o servidor de aplicação e compartilhar o regID do dispositivo e torná-lo "visível" para que ele receba notificações do servidor */
 public class CompartilharServidorExterno {
  
   public String compartilhaRegIdComServidorApp(final Context context,
@@ -45,6 +46,8 @@ public class CompartilharServidorExterno {
       }
       String body = postBody.toString();
       byte[] bytes = body.getBytes();
+      
+      //Objeto responsável por enviar e receber dados usando HTTP
       HttpURLConnection httpCon = null;
       try {
         httpCon = (HttpURLConnection) serverUrl.openConnection();
@@ -57,7 +60,8 @@ public class CompartilharServidorExterno {
         OutputStream out = httpCon.getOutputStream();
         out.write(bytes);
         out.close();
- 
+        
+        //verifica a resposta do servidor
         int status = httpCon.getResponseCode();
         if (status == 200) {
           result = "RegId compartilhado com o Servidor de Aplicação. RegId: "

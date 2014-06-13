@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 //Final
+
+/* Esta classe é responsável por Registrar o dispositivo no serviço GCM do Google, obtendo assim o GCM regID. Além de compartilhar este GCM regID com o servidor de aplicação */ 
 public class RegistroActivity extends Activity {
 
 	Button btnRegistroGCM;
@@ -37,6 +39,7 @@ public class RegistroActivity extends Activity {
 
 		context = getApplicationContext();
 
+		/*No clique do botão Registro, vamos utilizar o Google ID Projeto de registrar com o servidor de mensagens em nuvem do Google e obter a GCM RegID. */
 		btnRegistroGCM = (Button) findViewById(R.id.btnRegistroGCM);
 		btnRegistroGCM.setOnClickListener(new View.OnClickListener() {
 
@@ -54,6 +57,7 @@ public class RegistroActivity extends Activity {
 			}
 		});
 
+		/*O objetivo deste botão é compartilhar este RegID com a nossa aplicação web personalizada. Ao clicar, a URL da aplicação web será invocada*/
 		btnCompartilharApp = (Button) findViewById(R.id.btnCompartilharApp);
 		btnCompartilharApp.setOnClickListener(new View.OnClickListener() {
 
@@ -96,6 +100,7 @@ public class RegistroActivity extends Activity {
 		return regId;
 	}
 
+	//Método responsável por buscar o registro do aparelho, caso exista. Verifica também se a versão do aplicativo mudou, pois caso mude deve gerar um novo regID.
 	private String getIdRegistro(Context context) {
 		final SharedPreferences prefs = getSharedPreferences(
 				MainActivity.class.getSimpleName(), Context.MODE_PRIVATE);

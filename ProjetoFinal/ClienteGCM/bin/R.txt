@@ -167,6 +167,7 @@ int dimen abc_panel_menu_list_width 0x7f0a000b
 int dimen abc_search_view_preferred_width 0x7f0a000d
 int dimen abc_search_view_text_min_width 0x7f0a000c
 int dimen activity_horizontal_margin 0x7f0a0014
+int dimen activity_vertical_margin 0x7f0a0015
 int dimen padding_large 0x7f0a0013
 int dimen padding_medium 0x7f0a0012
 int dimen padding_small 0x7f0a0011
@@ -302,11 +303,12 @@ int id action_context_bar 0x7f060020
 int id action_menu_divider 0x7f060019
 int id action_menu_presenter 0x7f06001a
 int id action_mode_close_button 0x7f060027
+int id action_settings 0x7f060043
 int id activity_chooser_view_content 0x7f060028
 int id always 0x7f06000f
 int id beginning 0x7f060014
-int id btnCompartilharApp 0x7f060041
-int id btnRegistroGCM 0x7f060040
+int id btnCompartilharApp 0x7f060042
+int id btnRegistroGCM 0x7f060041
 int id checkbox 0x7f060030
 int id collapseActionView 0x7f060011
 int id default_activity_button 0x7f06002b
@@ -326,6 +328,7 @@ int id image 0x7f06002a
 int id lblMessage 0x7f06003f
 int id listMode 0x7f060005
 int id list_item 0x7f06002c
+int id message 0x7f060040
 int id middle 0x7f060015
 int id never 0x7f06000d
 int id none 0x7f060000
@@ -383,8 +386,10 @@ int layout abc_popup_menu_item_layout 0x7f030014
 int layout abc_search_dropdown_item_icons_2line 0x7f030015
 int layout abc_search_view 0x7f030016
 int layout activity_main 0x7f030017
-int layout activity_registro 0x7f030018
-int layout support_simple_spinner_dropdown_item 0x7f030019
+int layout activity_mostra_mensagem 0x7f030018
+int layout activity_registro 0x7f030019
+int layout support_simple_spinner_dropdown_item 0x7f03001a
+int menu mostra_mensagem 0x7f0c0000
 int string abc_action_bar_home_description 0x7f07001c
 int string abc_action_bar_up_description 0x7f07001d
 int string abc_action_menu_overflow_description 0x7f07001e
@@ -398,6 +403,7 @@ int string abc_searchview_description_submit 0x7f070022
 int string abc_searchview_description_voice 0x7f070023
 int string abc_shareactionprovider_share_with 0x7f070027
 int string abc_shareactionprovider_share_with_application 0x7f070026
+int string action_settings 0x7f07003c
 int string already_registered 0x7f07002d
 int string app_name 0x7f070028
 int string auth_client_needs_enabling_title 0x7f070015
@@ -426,6 +432,7 @@ int string common_google_play_services_update_text 0x7f070008
 int string common_google_play_services_update_title 0x7f070007
 int string common_signin_button_text 0x7f070012
 int string common_signin_button_text_long 0x7f070013
+int string description 0x7f070029
 int string error_config 0x7f07002c
 int string gcm_deleted 0x7f070033
 int string gcm_error 0x7f070031
@@ -433,7 +440,7 @@ int string gcm_message 0x7f070030
 int string gcm_recoverable_error 0x7f070032
 int string gcm_registered 0x7f07002e
 int string gcm_unregistered 0x7f07002f
-int string hello_world 0x7f070029
+int string hello_world 0x7f07003b
 int string location_client_powered_by_google 0x7f07001a
 int string menu_settings 0x7f07002a
 int string options_clear 0x7f070039
@@ -444,6 +451,7 @@ int string server_registered 0x7f070034
 int string server_unregister_error 0x7f070036
 int string server_unregistered 0x7f070035
 int string title_activity_main 0x7f07002b
+int string title_activity_mostra_mensagem 0x7f07003d
 int style AppBaseTheme 0x7f0b0084
 int style AppTheme 0x7f0b0083
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0b0063

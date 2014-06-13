@@ -1,10 +1,13 @@
 package br.ufg.inf.es.gcm;
 //Final
+
+//Classe que contém algumas constantes relacionadas ao projeto
 public interface Config {
   
   // Servidor GCM usando Java
-   static final String APP_SERVER_URL =
-   "http://localhost:8080/ServidorDeAplicacaoGCM/NotificacaoGCM?shareRegId=1";
+  // Pegar o ip do adaptaor de rede sem fio endereço IPv4:
+	static final String APP_SERVER_URL =
+   "http://192.168.1.87:8080/ServidorDeAplicacaoGCM/NotificacaoGCM?shareRegId=1";
  
   // Número do Projeto Google, email: lhfses@gmail.com
   static final String GOOGLE_PROJECT_ID = "825461449027";

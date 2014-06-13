@@ -12,4 +12,6 @@
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="br.ufg.inf.es.gcm.GCMReceptorBroadcast"/>
 <fullyQualifiedTypeName name="br.ufg.inf.es.gcm.CompartilharServidorExterno"/>
+<fullyQualifiedTypeName name="br.ufg.inf.es.gcm.MostraMensagemActivity"/>
+<fullyQualifiedTypeName name="br.ufg.inf.es.gcm.R.layout"/>
 </qualifiedTypeNameHistroy>

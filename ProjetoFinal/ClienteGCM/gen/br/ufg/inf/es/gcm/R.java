@@ -1057,6 +1057,7 @@ containing a value of this type.
     
          */
         public static final int activity_horizontal_margin=0x7f0a0014;
+        public static final int activity_vertical_margin=0x7f0a0015;
         public static final int padding_large=0x7f0a0013;
         public static final int padding_medium=0x7f0a0012;
         public static final int padding_small=0x7f0a0011;
@@ -1196,11 +1197,12 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060019;
         public static final int action_menu_presenter=0x7f06001a;
         public static final int action_mode_close_button=0x7f060027;
+        public static final int action_settings=0x7f060043;
         public static final int activity_chooser_view_content=0x7f060028;
         public static final int always=0x7f06000f;
         public static final int beginning=0x7f060014;
-        public static final int btnCompartilharApp=0x7f060041;
-        public static final int btnRegistroGCM=0x7f060040;
+        public static final int btnCompartilharApp=0x7f060042;
+        public static final int btnRegistroGCM=0x7f060041;
         public static final int checkbox=0x7f060030;
         public static final int collapseActionView=0x7f060011;
         public static final int default_activity_button=0x7f06002b;
@@ -1220,6 +1222,7 @@ containing a value of this type.
         public static final int lblMessage=0x7f06003f;
         public static final int listMode=0x7f060005;
         public static final int list_item=0x7f06002c;
+        public static final int message=0x7f060040;
         public static final int middle=0x7f060015;
         public static final int never=0x7f06000d;
         public static final int none=0x7f060000;
@@ -1303,8 +1306,12 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
         public static final int activity_main=0x7f030017;
-        public static final int activity_registro=0x7f030018;
-        public static final int support_simple_spinner_dropdown_item=0x7f030019;
+        public static final int activity_mostra_mensagem=0x7f030018;
+        public static final int activity_registro=0x7f030019;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
+    }
+    public static final class menu {
+        public static final int mostra_mensagem=0x7f0c0000;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1347,6 +1354,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f070026;
+        public static final int action_settings=0x7f07003c;
         public static final int already_registered=0x7f07002d;
         public static final int app_name=0x7f070028;
         /**   Title for notification shown when GooglePlayServices needs to be
@@ -1443,6 +1451,7 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f070013;
+        public static final int description=0x7f070029;
         public static final int error_config=0x7f07002c;
         public static final int gcm_deleted=0x7f070033;
         public static final int gcm_error=0x7f070031;
@@ -1450,7 +1459,7 @@ containing a value of this type.
         public static final int gcm_recoverable_error=0x7f070032;
         public static final int gcm_registered=0x7f07002e;
         public static final int gcm_unregistered=0x7f07002f;
-        public static final int hello_world=0x7f070029;
+        public static final int hello_world=0x7f07003b;
         /**  Location client code resources (prefix with location_client) 
          */
         public static final int location_client_powered_by_google=0x7f07001a;
@@ -1463,6 +1472,7 @@ containing a value of this type.
         public static final int server_unregister_error=0x7f070036;
         public static final int server_unregistered=0x7f070035;
         public static final int title_activity_main=0x7f07002b;
+        public static final int title_activity_mostra_mensagem=0x7f07003d;
     }
     public static final class style {
         /** 

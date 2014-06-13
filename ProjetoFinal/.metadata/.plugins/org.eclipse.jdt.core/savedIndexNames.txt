@@ -3,7 +3,6 @@ INDEX VERSION 1.126+C:\Users\Luiz\Documents\GitHub\aplicacaoAndroidReceberNotifi
 1284074322.index
 2754234091.index
 1626212749.index
-451635249.index
 3323992025.index
 848856923.index
 1462665347.index
