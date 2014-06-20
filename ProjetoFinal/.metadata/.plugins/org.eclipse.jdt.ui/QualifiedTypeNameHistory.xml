@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="br.ufg.inf.es.gcm.Utilidades"/>
 <fullyQualifiedTypeName name="br.ufg.inf.es.gcm.R.id"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="com.google.android.gms.gcm.GoogleCloudMessaging"/>
 <fullyQualifiedTypeName name="android.text.TextUtils"/>
@@ -14,4 +13,5 @@
 <fullyQualifiedTypeName name="br.ufg.inf.es.gcm.CompartilharServidorExterno"/>
 <fullyQualifiedTypeName name="br.ufg.inf.es.gcm.MostraMensagemActivity"/>
 <fullyQualifiedTypeName name="br.ufg.inf.es.gcm.R.layout"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
 </qualifiedTypeNameHistroy>

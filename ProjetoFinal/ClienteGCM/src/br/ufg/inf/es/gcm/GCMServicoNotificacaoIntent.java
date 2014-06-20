@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 //Final
@@ -68,21 +69,22 @@ public class GCMServicoNotificacaoIntent extends IntentService {
 		mNotificationManager = (NotificationManager) this
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 
-		Intent openNewActivityWindow = new Intent(this, MostraMensagemActivity.class);
-		openNewActivityWindow.putExtra("mensagem_recebida", msg);
-		Log.i(TAG, "Mensagem no Intent: " + msg);
+//		Intent openNewActivityWindow = new Intent(this, MostraMensagemActivity.class);
+	//	openNewActivityWindow.putExtra("mensagem_recebida", msg);
+		Intent a = new Intent("MostraMensagem").putExtra("msg", msg);
+		Log.i(TAG, "Mensagem:" + a.getExtras().toString());
 		
-		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-				openNewActivityWindow, 0);
-
+		PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(), 0,
+                a, PendingIntent.FLAG_UPDATE_CURRENT);
+		
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-				this).setSmallIcon(R.drawable.gcm_cloud)
+				this).setSmallIcon(R.drawable.notificacao)
 				.setContentTitle("Notificação GCM")
 				.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
 				.setContentText(msg)
 				.setAutoCancel(true);
 		
-		mBuilder.setContentIntent(contentIntent);
+		mBuilder.setContentIntent(pendingIntent);
 		mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		Log.d(TAG, "Notificação enviada com sucesso.");
 	}

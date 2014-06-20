@@ -33,9 +33,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="br.ufg.inf.es.gcm.MostraMensagemActivity"
-            android:label="Mensagem Recebida" >
+        <activity android:name=".MostraMensagemActivity"
+            android:label="Mensagem Recebida">
+            <intent-filter>
+                <action android:name="MostraMensagem"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
         <activity
             android:name="br.ufg.inf.es.gcm.MainActivity"

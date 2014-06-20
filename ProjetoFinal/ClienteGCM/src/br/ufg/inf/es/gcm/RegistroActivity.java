@@ -17,9 +17,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
+
 //Final
 
-/* Esta classe é responsável por Registrar o dispositivo no serviço GCM do Google, obtendo assim o GCM regID. Além de compartilhar este GCM regID com o servidor de aplicação */ 
+/* Esta classe é responsável por Registrar o dispositivo no serviço GCM do Google, obtendo assim o GCM regID. Além de compartilhar este GCM regID com o servidor de aplicação */
 public class RegistroActivity extends Activity {
 
 	Button btnRegistroGCM;
@@ -27,6 +28,8 @@ public class RegistroActivity extends Activity {
 	GoogleCloudMessaging gcm;
 	Context context;
 	String regId;
+	CompartilharServidorExterno appUtil;
+	AsyncTask<Void, Void, String> shareRegidTask;
 
 	private static final String REG_ID = "regId";
 	private static final String APP_VERSION = "appVersion";
@@ -39,7 +42,11 @@ public class RegistroActivity extends Activity {
 
 		context = getApplicationContext();
 
-		/*No clique do botão Registro, vamos utilizar o Google ID Projeto de registrar com o servidor de mensagens em nuvem do Google e obter a GCM RegID. */
+		/*
+		 * No clique do botão Registro, vamos utilizar o Google ID Projeto de
+		 * registrar com o servidor de mensagens em nuvem do Google e obter a
+		 * GCM RegID.
+		 */
 		btnRegistroGCM = (Button) findViewById(R.id.btnRegistroGCM);
 		btnRegistroGCM.setOnClickListener(new View.OnClickListener() {
 
@@ -57,7 +64,11 @@ public class RegistroActivity extends Activity {
 			}
 		});
 
-		/*O objetivo deste botão é compartilhar este RegID com a nossa aplicação web personalizada. Ao clicar, a URL da aplicação web será invocada*/
+		/*
+		 * O objetivo deste botão é compartilhar este RegID com a nossa
+		 * aplicação web personalizada. Ao clicar, a URL da aplicação web será
+		 * invocada
+		 */
 		btnCompartilharApp = (Button) findViewById(R.id.btnCompartilharApp);
 		btnCompartilharApp.setOnClickListener(new View.OnClickListener() {
 
@@ -67,13 +78,30 @@ public class RegistroActivity extends Activity {
 					Toast.makeText(getApplicationContext(),
 							"RegId está vazio!", Toast.LENGTH_LONG).show();
 				} else {
-					Intent i = new Intent(getApplicationContext(),
-							MainActivity.class);
-					i.putExtra("regId", regId);
 					Log.d("RegistroActivity",
 							"onClick do Compartilhamento: Antes de iniciar a main activity.");
-					startActivity(i);
-					finish();
+					appUtil = new CompartilharServidorExterno();
+
+					final Context context = getBaseContext();
+					shareRegidTask = new AsyncTask<Void, Void, String>() {
+						@Override
+						protected String doInBackground(Void... params) {
+							String result = appUtil
+									.compartilhaRegIdComServidorApp(context,
+											regId);
+							return result;
+						}
+
+						@Override
+						protected void onPostExecute(String result) {
+							shareRegidTask = null;
+							Toast.makeText(getApplicationContext(), result,
+									Toast.LENGTH_LONG).show();
+						}
+
+					};
+					shareRegidTask.execute(null, null, null);
+
 					Log.d("RegistroActivity",
 							"onClick do Compartilhamento: Depois de finalizar.");
 				}
@@ -100,7 +128,9 @@ public class RegistroActivity extends Activity {
 		return regId;
 	}
 
-	//Método responsável por buscar o registro do aparelho, caso exista. Verifica também se a versão do aplicativo mudou, pois caso mude deve gerar um novo regID.
+	// Método responsável por buscar o registro do aparelho, caso exista.
+	// Verifica também se a versão do aplicativo mudou, pois caso mude deve
+	// gerar um novo regID.
 	private String getIdRegistro(Context context) {
 		final SharedPreferences prefs = getSharedPreferences(
 				MainActivity.class.getSimpleName(), Context.MODE_PRIVATE);
@@ -139,8 +169,8 @@ public class RegistroActivity extends Activity {
 						gcm = GoogleCloudMessaging.getInstance(context);
 					}
 					regId = gcm.register(Config.GOOGLE_PROJECT_ID);
-					Log.d("RegistroActivity", "registroEmSegundoPlano - regId: "
-							+ regId);
+					Log.d("RegistroActivity",
+							"registroEmSegundoPlano - regId: " + regId);
 					msg = "Dispositivo registrado, ID de registro =" + regId;
 
 					storeRegistrationId(context, regId);

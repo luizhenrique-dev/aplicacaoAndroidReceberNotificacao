@@ -7,7 +7,7 @@ public interface Config {
   // Servidor GCM usando Java
   // Pegar o ip do adaptaor de rede sem fio endereço IPv4:
 	static final String APP_SERVER_URL =
-   "http://192.168.1.87:8080/ServidorDeAplicacaoGCM/NotificacaoGCM?shareRegId=1";
+   "http://192.168.1.12:8080/ServidorDeAplicacaoGCM/NotificacaoGCM?shareRegId=1";
  
   // Número do Projeto Google, email: lhfses@gmail.com
   static final String GOOGLE_PROJECT_ID = "825461449027";

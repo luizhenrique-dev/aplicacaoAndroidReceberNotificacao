@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+	//Sua função principal é armazenar através do componente SharedPreferences os RegIds através da RegistroActivity. Além de realizar o compartilhamento com o servidor de aplicação em background.
 	CompartilharServidorExterno appUtil;
 	String regId;
 	AsyncTask<Void, Void, String> shareRegidTask;
